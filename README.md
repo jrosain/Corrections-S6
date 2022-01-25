@@ -18,9 +18,9 @@ Pour les corrections en LaTeX, un entête est fourni dans le dossier et doit êt
 ```tex
 % ...
 
-\autors{...}
-\UE{HAI60XI - Nom de l'UE}
-\Title{TD X - Nom du TD}
+\newcommand\autors{...}
+\newcommand\UE{HAI60XI - Nom de l'UE}
+\newcommand\Title{TD X - Nom du TD}
 
 \begin{document}
     \input{header}
