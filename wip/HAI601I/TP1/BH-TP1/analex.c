@@ -9,7 +9,7 @@
  * 
  * Pour ce faire elle lit les caractères de l'entrée standard un à un et vérifie les
  * transitions dans l'automate.
- * La fonction getchar() permet de lire ce caractère et d'avancer le "pointuer" dans
+ * La fonction getchar() permet de lire ce caractère et d'avancer le "pointeur" dans
  * le fichier.
  *
  * Lorsqu'on se trouve dans un état dont la lettre ne possède aucune transition vers
@@ -25,7 +25,7 @@
  * un chemin qui se termine par un état final de l'automate), plusieurs possibilités
  * peuvent survenir.
  *
- * A. On a choppé un état final sur le chemin
+ * A. On a chopé un état final sur le chemin
  *    - On retourne au dernier état trouvé et on récupère la chaîne qui s'était
  *      formée à ce moment.
  *    - On n'oublie pas de replacer tous les caractères non utilisés dans l'entrée
