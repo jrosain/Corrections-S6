@@ -8,7 +8,7 @@ Les corrections terminées sont accessibles dans le dossier [corrections](correc
 * [HAI604I - Programmation multitâche](corrections/HAI604I)
 * [HAI605I - Données multimédia](corrections/HAI605I)
 
-Si vous remarquez un problème dans une correction, vous pouvez ouvrir une issue [ici](issues/)
+Si vous remarquez un problème dans une correction, vous pouvez ouvrir une issue [ici](https://github.com/Welzin/Corrections-S6/issues/)
 
 ## Pour les auteurs des corrections
 
