@@ -12,7 +12,7 @@ Si vous remarquez un problème dans une correction, vous pouvez ouvrir une issue
 
 ## Pour les auteurs des corrections
 
-Le dossier de travail est [WIP](WIP/). Il y a un dossier pour chaque matière et un sous-dossier par TD/TP. Chaque auteur devra y déposer sa correction (PDF seul pour les TD, dossier avec les sources compilables, un `makefile`, **mais pas d'exécutable** pour les TP).
+Le dossier de travail est [WIP](wip/). Il y a un dossier pour chaque matière et un sous-dossier par TD/TP. Chaque auteur devra y déposer sa correction (PDF seul pour les TD, dossier avec les sources compilables, un `makefile`, **mais pas d'exécutable** pour les TP).
 
 Pour les corrections en LaTeX, un entête est fourni dans le dossier et doit être inclus dans la version finale de la correction. Cet entête permet de définir l'unité d'enseignement, les auteurs, et le nom du TD. Pour l'utiliser, il suffit de définir les 3 macros suivantes :
 ```tex
