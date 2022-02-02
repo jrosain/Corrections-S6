@@ -8,30 +8,6 @@
 #include <arpa/inet.h>
 #include <string.h>
 
-
-/* Fonction qui implémente le protocole réseau défini. Renvoie le message sous forme de chaine de caractères. */
-char *receiveMessage(int ds, struct sockaddr_in *sockClient, socklen_t *lgAdr) {
-   // Définition du protocole de réception des messages.
-
-   // 1 - Récupération du nombre d'octets du message qui va être reçu.
-   // Jusqu'à un message de taille 10^100 octets.
-   char bytes[100];
-   ssize_t res = recvfrom(ds, bytes, sizeof(bytes), 0, (struct sockaddr*)sockClient, lgAdr);
-   if (res == -1)
-      return NULL;
-   int msgSize = atoi(bytes);
-   char *message = malloc(msgSize);
-   
-   // 2 - Récupération du vrai message.
-   res = recvfrom(ds, message, msgSize, 0, (struct sockaddr*)&sockClient, lgAdr);
-   if (res == -1) {
-      free(message);
-      return NULL;
-   }
-
-   return message;
-}
-
 /* Programme serveur */
 
 int main(int argc, char *argv[]) {
