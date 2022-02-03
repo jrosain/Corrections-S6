@@ -1,0 +1,71 @@
+---- RAPPORT TP1 ----
+
+---- Q1: Seuillage d'une image au format pgm
+-- prog: test_grey.cpp
+--  out: out/ex1-grey.pgm
+-- comp: g++ image_ppm.h test_grey.cpp -o test_grey
+--  exe: ./test_grey ImageIn.pgm ImageOut.pgm Seuil
+-- prob: seuiller une image
+-> Spécifier un seuil entre 0 et 255
+-> Lire une image en entrée, avec 255 niveaux de gris
+-> Lire pour chaque pixel le niveau de gris, et s'il dépasse le seuil, le mettre à 255 (noir), sinon à 0 (blanc)
+
+---- Q2: Seuillage d'une image avec plusieurs niveaux
+-- prog: test_grey_seuils.cpp
+--  out: out/ex2-grey_seuils.pgm
+-- comp: g++ image_ppm.h test_grey_seuils.cpp -o test_grey_seuils
+--  exe: ./test_grey ImageIn.pgm ImageOut.pgm nbSeuils[1-3] seuil1 [seuil2] [seuil3]
+-- prob: seuiller une image avec plusieurs niveaux
+-> Spécifier un nombre de seuils 1-3
+-> Spécifier les niveaux de chacun des seuils
+-> Lire une image en entrée, avec 255 niveaux de gris
+-> Selon le nombre de seuils, lire chaque pixel et le rentrer dans la catégorie correspondante :
+    -> 1 seuil: 0-255
+    -> 2 seuils: 0-128-255
+    -> 3 seuils: 0-85-170-255
+
+---- Q3: Histogramme d'une image pgm
+-- prog: histo.cpp
+--  out: out/ex3-histo.dat
+-- comp: g++ image_ppm.h histo.cpp -o histo
+--  exe: ./test_grey ImageIn.pgm > histo.dat
+-- prob: réaliser l'histogramme d'une image en niveaux de gris
+-> ex3-histo.dat contient 2 colonnes : indice et occurrence des niveaux de gris.
+-> se lit avec gnuplot: plot "histo.dat" with lines
+
+---- Q4: Profil d'une ligne ou colonne image pgm
+-- prog: profil.cpp
+--  out: out/ex4-profil.dat   (prog > profil.dat)
+-- comp: g++ image_ppm.h profil.cpp -o profil
+--  exe: ./test_grey ImageIn.pgm [Line|Col] indice > histo.dat
+-- prob: réaliser le profil d'une image
+-> ex4-profil.dat contient 2 colonnes : indice et niveau de gris.
+-> se lit avec gnuplot: plot "histo.dat" with lines
+-> scan l'image le long de la ligne/colonne choisie
+
+---- Q5: Seuillage d'une image couleur 
+-- prog: test_couleur.cpp
+--  out: out/ex5-seuilCouleur.ppm
+-- comp: g++ image_ppm.h test_couleur.cpp -o test_couleur
+--  exe: ./test_grey ImageIn.ppm ImageOut.ppm SeuilRouge SeuilVert SeuilBleu
+-- prob: seuiller en couleur une image ppm
+-> Spécifier trois seuils pour Rouge, Vert et Bleu
+-> Pour chaque pixel, pour chaque couleur:
+    -> Si sous le seuil, couleur à 0
+    -> Sinon couleur à 255
+
+---- Q6: Histogramme des 3 couleurs (ppm)
+-- prog: histo_couleur.cpp
+--  out: out/ex6-histo.dat
+-- comp: g++ image_ppm.h histo_couleur.cpp -o histo_couleur
+--  exe: ./test_grey ImageIn.ppm > histo.dat
+-- prob: réaliser l'histogramme des trois couleurs (séparément)
+-> enregistrer un fichier contenant [indice][nbRouge][nbVert][nbBleu]
+-> pour lire chaque colonne séparément sur le même graphe:
+-> soit
+    set key outside
+    plot for [col=2:4] "histo.dat" using 0:col with lines
+-> soit
+    plot "histo.dat" using 1:2 with lines
+    replot "histo.dat" using 1:3 with lines
+    replot "histo.dat" using 1:4 with lines
