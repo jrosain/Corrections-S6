@@ -1,0 +1,62 @@
+----- Rapport TP2 -----
+
+----- Q1: Seuillage d'une image et érosion de l'image binaire
+-- prog: erosion.cpp
+--  out: out/ex1-erosion.pgm
+-- comp: g++ image_ppm.h erosion.cpp -o erosion
+--  exe: ./erosion ImageIn.pgm ImageOut.pgm
+-- prob: éroder une image binaire
+-> Créer une image seuillée à partir d'une image 256x256 en utilisant le prog grey du TP1
+-> sur l'image chateau.pgm, le meilleur seuil est à 154.
+-> Pour l'érosion: parcourir les pixels de l'image
+-> Si un des 8 pixels autour est au niveau de gris 255(blanc) alors le pixel est mis à 255
+-> Sinon on le laisse à 0(noir)
+
+----- Q2: dilation de l'image binaire
+-- prog: dilatation.cpp
+--  out: out/ex2-dilatation.pgm
+-- comp: g++ image_ppm.h dilatation.cpp -o dilatation
+--  exe: ./dilatation ImageIn.pgm ImageOut.pgm
+-- prob: dilater une image binaire
+-> Pour la dilatation: parcourir les pixels de l'image
+-> Si un des 8 pixels autour est au niveau de gris 0(noir), alors le pixel est mis à 0
+-> Sinon on le laisse à 255(blanc)
+
+----- Q3: Ouverture et Fermeture d'une image binaire
+-- prog: ouverture.cpp   /   fermeture.cpp
+--  out: out/ex3-ouverture.pgm    /    out/ex3-fermeture.pgm
+-- comp: g++ image_ppm.h ouverture.cpp -o ouverture     /    g++ image_ppm.h fermeture.cpp -o fermeture
+--  exe: ./ouverture ImageIn.pgm ImageOut.pgm       /    ./fermeture ImageIn.pgm ImageOut.pgm
+-- prob: ouverture/fermeture
+-> Fermeture: dilatation puis erosion
+-> Ouverture: erosion puis dilatation
+-> Enchainer fermeture puis ouverture: image d'origine mais très "pixelisée": gros pixels
+-> 3 dilatations puis 6 erosions puis 3 dilatations : contours assez nets
+
+----- Q4: Segmentation d'une image
+-- prog: difference.cpp
+--  out: out/ex4-difference.pgm
+-- comp: g++ image_ppm.h difference.cpp -o difference
+--  exe: ./difference ImageIn1.pgm ImageIn2.pgm ImageOut.pgm
+-- prob: trouver les contours
+-> Img1 est l'image seuillée, Img2 est l'image dilatée
+-> On parcours les pixels des deux images en même temps. S'ils sont égaux, ils deviennent blanc (255)
+-> S'ils sont différents ils deviennent noir (0)
+
+----- Q5: Extension aux niveaux de gris et couleur
+-- prog: main.cpp
+--  out: out/ex5-main.p[g|p]m 
+-- comp: g++ main.cpp image_ppm.h -o main
+--  exe: ./main [transformation] [couleur] ImageIn ImageOut
+-- prob: généraliser les transformations précédentes aux images non seuillées et couleur
+-> Pour ce faire, on travaille sur les min/max des pixels autour (marcherait aussi sur les images seuillées)
+-> flag transformation
+    -e  erosion
+    -d  dilatation
+    -o  ouverture
+    -f  fermeture
+    -fo fermeture puis ouverture
+    -tacos12viandes 3 dilatations puis 6 érosions puis 3 dilatations
+-> flag couleur
+    -c  couleur
+    -n  noir et blanc
