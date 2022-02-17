@@ -1,0 +1,8 @@
+
+
+
+
+-> tcp_rmem : 
+        -> trois nombres : minimum default maximum
+        -> correspondent aux octets en lectures/écritures par socket ouverte
+        -> ici 4096 min / 131072 default / 6291456 max
