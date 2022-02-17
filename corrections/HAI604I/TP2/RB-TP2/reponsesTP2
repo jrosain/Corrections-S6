@@ -1,0 +1,34 @@
+1-PREMIERS ECHANGES
+-> Lancer serveur, suspendre exécution avant accept(), lancer client.
+Client en attente, dès qu'on remet en route le serveur récupère le message correctement et répond.
+-> Pareil mais en lançant 7 clients
+Le serveur finit par se connecter au client qui a envoyé en dernier. 
+Les autres clients restent en attente. Lorsque le serveur se ferme, les autres clients qui étaient en attente reçoivent "errno: 104 , Connection reset by peer"
+
+2-COMPRENDRE FORMAT TCP
+-> Etape 1 : double envoi, effectués avant que le serveur ne soit en réception (pareil s'il est en réception ?)
+Le serveur extrait les deux messages concaténés, et renvoie une taille double de ce qui a été envoyé.
+-> Etape 2 : caractère \0 ajouté à chaque envoi ; serveur a connaissance de la taille du msg
+Il récupère bien les deux messages, l'un après l'autre, et renvoie le bon résultat.
+-> Etape 3 : 
+    -> client: possibilité d'envoyer chaine en boucle, infos chiffres affichés
+    -> serveur: ajout d'infos chiffres 
+    -> tester sur deux machines différentes, chaines longues et boucles grandes
+    -> Le nombre total d'octets effectivement envoyés est-il toujours égal au nombre d'octets effectivement reçus ?
+Envoyé 1.940.000 octets, reçu 918.266 (la moitié?)
+    -> Le nombre total d'appels à la fonction send(...) est-il toujours égal au nombre total d'appels à la fonction recv(...) ?
+Appelé send 10k fois, appelé recv 225 fois.
+    -> Le nombre d'octets à envoyer est-il toujours égal aux nombre d'octets effectivement envoyés ? 
+Oui.
+-> Etape 4 : Modifier les programmes pour remplir le buffer d'envoi et le buffer de réception. Que se passe t-il? 
+    -> serveur rempli: client en attente
+
+3-BONNE METHODE TCP
+-> fichier sendrecvTCP.c contient des fonctions enrobantes
+-> avant d'envoyer un message, on commence par envoyer la taille qui va suivre
+
+4-TRAITER PLUSIEURS CLIENTS
+-> itératif: traiter un client, fermer connexion, en boucle
+    -> problème: il faut que le client se reconnecte systématiquement s'il veut envoyer plusieurs messages
+-> concurrent: à chaque fois qu'on accepte une connexion, forker
+    -> vachement mieux, chaque enfant gère un client jusqu'à la fermeture, puis se termine, le père attend les connexions en permanence
