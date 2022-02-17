@@ -5,7 +5,7 @@ Pour chaque TD/TP, il y a plusieurs corrections, une par auteur qui veut bien co
 
 Un grand merci aux différents contributeurs :
 * Cédric Cahuzac
-* Robin l'Huillier
+* Robin Boanca
 * Benoît Huftier
 * Margaux Renoir
 * Johann Rosain
