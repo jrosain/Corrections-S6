@@ -30,14 +30,44 @@ Fixpoint even (n : nat) : bool :=
     | (S (S p)) => (even p)
   end.
 
-Goal forall n : nat, (even n) = true -> is_even n.
+Lemma even_ev : forall n : nat, (even n = true -> is_even n) /\ (even (S n) = true -> is_even (S n)).
 Proof.
   intros.
   induction n.
+    split.
+      intro.
+      apply is_even_O.
+
+      intro.
+      simpl in H.
+      inversion H.
+
+      split.
+        apply IHn.
+        simpl.
+        intro.
+        apply is_even_n.
+        revert H.
+        elim IHn.
+        intros.
+        apply H.
+        assumption.
+Qed.
+
+Goal forall n : nat, (even n) = true -> is_even n.
+Proof.
+  induction n.
+    intros.
     apply is_even_O.
 
-    induction n.
+    destruct n.
+      intros.
+      simpl in H.
       inversion H.
+
+      intros.
+      simpl in H.
       apply is_even_n.
-      (* Pas d'idée ici pour l'instant.. *)
+      apply even_ev.
+      assumption.
 Qed.
