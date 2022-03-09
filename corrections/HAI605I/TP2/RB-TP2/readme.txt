@@ -1,0 +1,1 @@
+Ajouter image_ppm.h dans le dossier pour que les programmes fonctionnent.

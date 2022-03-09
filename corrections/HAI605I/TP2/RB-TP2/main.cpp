@@ -1,3 +1,7 @@
+/*
+Author: Robin Boanca
+Date: 17/02/2022
+*/
 
 #include <stdio.h>
 #include "image_ppm.h"

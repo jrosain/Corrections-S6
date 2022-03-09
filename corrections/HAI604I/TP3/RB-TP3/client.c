@@ -1,17 +1,22 @@
-    #include <stdio.h> 
-    #include <unistd.h>
-    #include <sys/types.h>
-    #include <sys/socket.h>
-    #include <netdb.h>
-    #include <stdlib.h>
-    #include <arpa/inet.h>
-    #include <string.h>
-    #include <sys/stat.h>
-    #include "tcp-utils.c"
+/*
+Author: Robin Boanca
+Date: 09/02/2022
+*/
 
-    #define MAX_BUFFER_SIZE 146980
+#include <stdio.h> 
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <stdlib.h>
+#include <arpa/inet.h>
+#include <string.h>
+#include <sys/stat.h>
+#include "tcp-utils.c"
 
-    int main(int argc, char *argv[]) {
+#define MAX_BUFFER_SIZE 146980
+
+int main(int argc, char *argv[]) {
 
     if (argc != 4){
         printf("utilisation : client ip_serveur port_serveur nom_fichier\n Remaque : le parametre nom_fichier correspond au nom d'un fichier existant dans le répertoire emission\n");

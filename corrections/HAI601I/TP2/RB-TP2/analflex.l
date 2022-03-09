@@ -1,4 +1,10 @@
 %{ /* analflex.l */
+
+/*
+Author: Robin Boanca
+Date: 17/02/2022
+*/
+
 /* ZONE DE DEFINITION (OPTIONNELLE) */
 
 /* globale, contient une seule des trois valeurs à un instant t */

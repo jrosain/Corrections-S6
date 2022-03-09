@@ -1,3 +1,9 @@
+/*
+Author: Robin Boanca
+Date: 10/02/2022
+*/
+
+
 // test_couleur.cpp : Seuille une image en niveau de gris
 
 #include <stdio.h>

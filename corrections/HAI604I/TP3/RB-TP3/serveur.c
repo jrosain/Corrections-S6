@@ -1,3 +1,8 @@
+/*
+Author: Robin Boanca
+Date: 10/02/2022
+*/
+
 #include <stdio.h>//perror
 #include <sys/types.h>
 #include <netdb.h>
