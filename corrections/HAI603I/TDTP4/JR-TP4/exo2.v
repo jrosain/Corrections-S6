@@ -1,3 +1,8 @@
+(*
+ * fichier: exo2.v
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ *)
 (* 1 - Relation is_even *)
 Inductive is_even : nat -> Prop :=
   | is_even_O : is_even O

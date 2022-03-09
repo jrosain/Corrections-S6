@@ -1,3 +1,8 @@
+(*
+ * fichier: exo3.v
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ *)
 Open Scope list.
 
 Parameter S : Set.

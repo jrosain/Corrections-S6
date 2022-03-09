@@ -1,3 +1,8 @@
+(*
+ * fichier: exo2.v
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ *)
 Require Export Classical.
 
 Parameter E : Set.

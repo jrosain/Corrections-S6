@@ -1,3 +1,8 @@
+(*
+ * fichier: exo1.v
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ *)
 Parameters A B C : Prop.
 
 (* 1.1 *)

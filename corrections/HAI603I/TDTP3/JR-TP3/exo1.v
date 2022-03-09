@@ -1,3 +1,8 @@
+(*
+ * fichier: exo1.v
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ *)
 Fixpoint mult (m n : nat) {struct m} : nat :=
   match m with
     | 0 => 0

@@ -1,3 +1,8 @@
+/**
+ * fichier: arbin.c
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ **/
 #include <stdlib.h>
 #include <stdio.h>
 

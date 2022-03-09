@@ -1,3 +1,8 @@
+/**
+ * fichier: serveur.c
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ **/
 #include <netinet/in.h>
 #include <stdio.h> 
 #include <unistd.h>

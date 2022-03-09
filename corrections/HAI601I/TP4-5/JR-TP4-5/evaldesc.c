@@ -1,3 +1,8 @@
+/**
+ * fichier: evaldesc.c
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ **/
 /** 
  * @file analdesc.c        
  * @author Michel Meynard

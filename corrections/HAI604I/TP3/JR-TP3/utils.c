@@ -1,3 +1,8 @@
+/**
+ * fichier: utils.c
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ **/
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <stdio.h>

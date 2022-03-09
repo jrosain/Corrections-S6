@@ -1,4 +1,9 @@
 /**
+ * fichier: analex.c
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ **/
+/**
  * @file analex.c  
  * @author Michel Meynard
  * @brief Prog principal définissant et appelant analex().

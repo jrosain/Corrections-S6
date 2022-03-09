@@ -1,3 +1,8 @@
+/**
+ * fichier: YCbCrtoRGB.c
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ **/
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -1,4 +1,9 @@
 /**
+ * fichier: afd.c
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ **/
+/**
  * @file analex.c  
  * @author Johann Rosain
  * @brief Instancie et crée l'AFD reconnu par l'analex.

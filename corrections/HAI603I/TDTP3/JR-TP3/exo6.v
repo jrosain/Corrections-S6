@@ -1,3 +1,8 @@
+(*
+ * fichier: exo6.v
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ *)
 Inductive is_even : nat -> Prop :=
   | is_even_O : is_even O
   | is_even_n : forall n : nat, is_even n -> is_even (S (S n)).

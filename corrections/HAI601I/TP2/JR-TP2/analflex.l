@@ -1,3 +1,8 @@
+/**
+ * fichier: analflex.l
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ **/
 /* Zone de définition */
 %{
 struct YYData {

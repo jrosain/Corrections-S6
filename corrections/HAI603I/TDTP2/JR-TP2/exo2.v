@@ -1,3 +1,8 @@
+(*
+ * fichier: exo2.v
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ *)
 Section Peano.
 
 Parameter N : Set.
