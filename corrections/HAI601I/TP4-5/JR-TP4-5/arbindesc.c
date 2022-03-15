@@ -1,8 +1,3 @@
-/**
- * fichier: arbindesc.c
- * auteur: Johann Rosain
- * date: 09/03/2022
- **/
 /** 
  * @file analdesc.c        
  * @author Michel Meynard
@@ -24,63 +19,33 @@
 #define ERREUR_SYNTAXE { printf("\nMot non reconnu : erreur de syntaxe \
 au caractère numéro %d \n",numcar); exit(1); } 
 
-Arbin E(); Arbin R(); Arbin T(); Arbin S(); Arbin F(); 
+Arbin E(); Arbin R(Arbin gauche); Arbin T(); Arbin S(Arbin gauche); Arbin F(); 
 
 int jeton;                                  /* caractère courant du flot d'entrée */
 int numcar = 0;                             /* numero du caractère courant (jeton) */
 
 Arbin E() {                                 /* regle : E->TR */
-    Arbin t = T();
-    Arbin r = R();
-    // R() a généré epsilon, on ne prend que le sous-arbre T().
-    if (ab_vide(r)) {
-        return t;
-    }
-    // R() est une opération :
-    //  1 - On prend sa racine et son sag et on fait un sous-arbre contenant l'opération 
-    //  2 - Le sous-arbre droit devient le parent :
-    //      * Transfert de la racine du sad en tant que racine de l'arbre
-    //      * On récupère le fils non nul du sad pour le placer en sad.
-    Arbin op = ab_construire(ab_racine(r), t, ab_sag(r));
-    if (ab_vide(ab_sad(r))) {
-        return op;
-    }
-    return ab_construire(ab_racine(ab_sad(r)), op, ab_sag(ab_sad(r))); 
+    return R(T());
 }
 
-Arbin R() {                                  /* regle : R->+TR|epsilon */
-    Arbin rac = ab_creer();
+Arbin R(Arbin gauche) {                     /* regle : R->+TR|epsilon */
     if (jeton == '+') {                     
         AVANCER
-        Arbin t = T();
-        Arbin r = R();
-        rac = ab_construire('+', t, r);
+        return R(ab_construire('+', gauche, T()));
     }
-    return rac;
+    return gauche;
 }
 
 Arbin T() {                                  /* regle : T->FS */
-    Arbin f = F();
-    Arbin s = S();
-    if (ab_vide(s)) {
-        return f;
-    }
-    Arbin op = ab_construire(ab_racine(s), f, ab_sag(s));
-    if (ab_vide(ab_sad(s))) {
-        return op;
-    }
-    return ab_construire(ab_racine(ab_sad(s)), op, ab_sag(ab_sad(s))); 
+    return S(F());
 }
 
-Arbin S() {                                  /* regle : S->*FS|epsilon */
-    Arbin rac = ab_creer();
+Arbin S(Arbin gauche) {                      /* regle : S->*FS|epsilon */
     if (jeton == '*') {                     
         AVANCER
-        Arbin f = F();
-        Arbin s = S();
-        rac = ab_construire('*', f, s);
+        return S(ab_construire('*', gauche, F()));
     }
-    return rac;
+    return gauche;
 }
 
 Arbin F() {                                  /* regle : F->(E)|0|1|...|9 */
