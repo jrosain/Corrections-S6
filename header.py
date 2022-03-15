@@ -7,7 +7,7 @@ from datetime import datetime
 # Arguments du script :
 #   - Auteur
 #   - Dossiers à scanner
-if sys.argv == 1 :
+if len(sys.argv) == 1 :
     print(f"Utilisation: {sys.argv[0]} auteur glob1 [glob2 ... globn] (exemple de glob: *.c)")
     exit(1)
 

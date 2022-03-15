@@ -1,3 +1,8 @@
+/**
+ * fichier: wc.l
+ * auteur: Johann Rosain
+ * date: 15/03/2022
+ **/
 %{
 #include <stdio.h>
 

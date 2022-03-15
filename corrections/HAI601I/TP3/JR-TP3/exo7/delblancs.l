@@ -1,3 +1,8 @@
+/**
+ * fichier: delblancs.l
+ * auteur: Johann Rosain
+ * date: 15/03/2022
+ **/
 %{
 #define ONESPACE 300
 #define OK       301

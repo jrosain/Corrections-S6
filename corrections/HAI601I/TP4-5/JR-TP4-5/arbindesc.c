@@ -1,13 +1,8 @@
-/** 
- * @file analdesc.c        
- * @author Michel Meynard
- * @brief Analyse descendante récursive d'expression arithmétique
- *
- * Ce fichier contient un reconnaisseur d'expressions arithmétiques composée de 
- * littéraux entiers sur un car, des opérateurs +, * et du parenthésage ().
- * Remarque : soit rediriger en entrée un fichier, soit terminer par deux 
- * caractères EOF (Ctrl-D), un pour lancer la lecture, l'autre comme "vrai" EOF.
- */
+/**
+ * fichier: arbindesc.c
+ * auteur: Johann Rosain
+ * date: 09/03/2022
+ **/
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
