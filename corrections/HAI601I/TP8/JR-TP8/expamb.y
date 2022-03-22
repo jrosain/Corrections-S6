@@ -1,3 +1,8 @@
+/**
+ * fichier: expreg.y
+ * auteur: Johann Rosain
+ * date: 23/03/2022
+ **/
 %{
 #include <stdio.h>
 #include "arbin.h"
