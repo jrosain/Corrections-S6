@@ -19,7 +19,7 @@ if ' ' not in author :
 
 for files in sys.argv[2:] :
     stC, nlC, edC = "", "", ""
-    if ".c" in files or ".l" in files :
+    if ".c" in files or ".l" in files or ".y" in files or ".h" in files :
         stC, nlC, edC = "/**", " *", " **/"
     if ".py" in files : 
         stC, nlC, edC = "", "#", ""

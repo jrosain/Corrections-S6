@@ -1,0 +1,9 @@
+1. Définition du protocole des demandes d'accès : une étiquète de demande d'accès avec le numéro du processus qui demande la ressource :
+struct msgbuf {
+    long mtype;
+    int nproc;
+}
+
+2. Envoie un message au processus qui a demandé l'accès en premier, avec la ressource.
+3. Tant que le processus qui s'occupe de changer la ressource partagée ne l'a pas renvoyé avec une étiquète particulière, Pctrl n'accepte pas d'autre demande.
+4. Et ainsi de suite.
